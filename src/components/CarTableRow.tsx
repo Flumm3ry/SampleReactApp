@@ -13,11 +13,11 @@ interface CarTableRowProps {
 const CarTableRow = (props: CarTableRowProps): JSX.Element =>(
     <TableRow>
         <TableCell>{props.car.id}</TableCell>
-        <TableCell align="right">{props.car.car_make}</TableCell>
-        <TableCell align="right">{props.car.car_model}</TableCell>
+        <TableCell align="right">{props.car.carMake}</TableCell>
+        <TableCell align="right">{props.car.carModel}</TableCell>
         <TableCell align="right">{props.car.year}</TableCell>
         <TableCell align="right">{props.car.color}</TableCell>
-        <TableCell align="right">{props.car.email_address}</TableCell>
+        <TableCell align="right">{props.car.emailAddress}</TableCell>
         <TableCell align="right">
             <Button 
                 color="secondary"

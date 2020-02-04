@@ -1,8 +1,8 @@
 export default interface CarDetails {
     id: number,
-    car_make: string,
-    car_model: string,
+    carMake: string,
+    carModel: string,
     year: number,
     color: string,
-    email_address: string,
+    emailAddress: string,
 }
