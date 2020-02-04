@@ -3,12 +3,25 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import { data } from './data/sampleData';
 import CarTable from './components/CarTable';
 import Theme from './themes/Theme';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import NavBar from './components/NavBar';
 
 
 const App = () => (
   <ThemeProvider theme={Theme}>
-    <h1>Hello, World!</h1>
-    <CarTable data={data} />
+    <BrowserRouter>
+      <NavBar />
+        <Switch>
+          <Route path="/deleted">
+              <h1>Deleted items</h1>
+              <CarTable data={data} />
+          </Route>
+          <Route path="/">
+            <h1>Car data</h1>
+            <CarTable data={data} />
+          </Route>
+        </Switch>
+    </BrowserRouter>
   </ThemeProvider>
 );
 
