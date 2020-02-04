@@ -20,7 +20,7 @@ const CarTableRow = (props: CarTableRowProps): JSX.Element =>(
         <TableCell align="right">{props.car.emailAddress}</TableCell>
         <TableCell align="right">
             <Button 
-                color="secondary"
+                color="primary"
                 startIcon={<DeleteIcon />}
                 variant="outlined"
                 onClick={() => props.onClick(props.car.id)}
