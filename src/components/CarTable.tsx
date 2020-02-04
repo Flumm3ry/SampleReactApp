@@ -13,6 +13,7 @@ import CarTableRow from './CarTableRow';
 interface TableProps {
     data: CarDetails[],
     deleteButtonsDisabled: boolean,
+    onDataChange: (deletedCar: CarDetails) => void | null,
 }
 
 const useStyles = makeStyles({
@@ -24,14 +25,9 @@ const useStyles = makeStyles({
 const CarTable = (props: TableProps): JSX.Element => {
     const classes = useStyles();
 
-    const [cars, setCars] = useState<CarDetails[]>(props.data);
-
-    const deleteRow = (id: number): void => (
-        setCars(cars.filter(c => c.id !== id))
-    );
-
     return (
         <TableContainer className={classes.tableContainer} component={Paper}>
+            {console.log("Rerendered" + props.deleteButtonsDisabled)}
             <Table aria-label="simple table">
                 <TableHead>
                     <TableRow>
@@ -41,12 +37,12 @@ const CarTable = (props: TableProps): JSX.Element => {
                         <TableCell align="right">Year</TableCell>
                         <TableCell align="right">Colour</TableCell>
                         <TableCell align="right">Email address</TableCell>
-                        <TableCell></TableCell>
+                        {props.deleteButtonsDisabled ? null : <TableCell></TableCell>}
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {cars.map(car => (
-                        <CarTableRow key={car.id} car={car} onClick={deleteRow} buttonDisabled={props.deleteButtonsDisabled}/>
+                    {props.data.map(car => (
+                        <CarTableRow key={car.id} car={car} onDataChange={props.onDataChange} buttonDisabled={props.deleteButtonsDisabled}/>
                     ))}
                 </TableBody>
             </Table>

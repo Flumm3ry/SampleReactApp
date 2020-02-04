@@ -5,7 +5,7 @@ import { data } from './../data/sampleData';
 
 describe('Car table', () => {
     it('Contains the right number of rows', () => {
-        const testTable = shallow(<CarTable data={data} deleteButtonsDisabled={false}/>);
+        const testTable = shallow(<CarTable data={data} deleteButtonsDisabled={false} onDataChange={null}/>);
         const rows = testTable.find('CarTableRow');
         expect(rows.length).toEqual(data.length);
     })

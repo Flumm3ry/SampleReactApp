@@ -7,7 +7,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 interface CarTableRowProps {
     car: CarDetails,
-    onClick: (id: number) => void,
+    onDataChange: (deletedCar: CarDetails) => void | null,
     buttonDisabled: boolean,
 }
 
@@ -19,17 +19,17 @@ const CarTableRow = (props: CarTableRowProps): JSX.Element =>(
         <TableCell align="right">{props.car.year}</TableCell>
         <TableCell align="right">{props.car.color}</TableCell>
         <TableCell align="right">{props.car.emailAddress}</TableCell>
-        <TableCell align="right">
+        {props.buttonDisabled ? null : <TableCell align="right">
             <Button 
                 color="primary"
                 startIcon={<DeleteIcon />}
                 variant="outlined"
-                onClick={() => props.onClick(props.car.id)}
-                disabled={props.buttonDisabled}
+                onClick={() => props.onDataChange(props.car)}
+                
             >
                 Delete
             </Button>
-        </TableCell>
+        </TableCell>}
     </TableRow>
 );
 
