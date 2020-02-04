@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
     grow: {
@@ -9,6 +9,7 @@ const useStyles = makeStyles({
     },
     title: {
         padding: 10,
+        color: 'white',
     }
 });
 
