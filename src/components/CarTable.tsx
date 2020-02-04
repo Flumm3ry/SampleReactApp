@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -7,15 +7,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/styles'
-
-interface CarDetails {
-    id: number,
-    car_make: string,
-    car_model: string,
-    year: number,
-    color: string,
-    email_address: string,
-}
+import CarDetails from '../interfaces/CarDetails';
+import CarTableRow from './CarTableRow';
 
 interface TableProps {
     data: CarDetails[],
@@ -29,6 +22,13 @@ const useStyles = makeStyles({
 
 const CarTable = (props: TableProps): JSX.Element => {
     const classes = useStyles();
+
+    const [cars, setCars] = useState<CarDetails[]>(props.data);
+
+    const deleteRow = (id: number): void => (
+        setCars(cars.filter(c => c.id !== id))
+    );
+
     return (
         <TableContainer className={classes.tableContainer} component={Paper}>
             <Table aria-label="simple table">
@@ -40,18 +40,12 @@ const CarTable = (props: TableProps): JSX.Element => {
                         <TableCell align="right">Year</TableCell>
                         <TableCell align="right">Colour</TableCell>
                         <TableCell align="right">Email address</TableCell>
+                        <TableCell></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {props.data.map(row => (
-                        <TableRow key={row.id}>
-                            <TableCell>{row.id}</TableCell>
-                            <TableCell align="right">{row.car_make}</TableCell>
-                            <TableCell align="right">{row.car_model}</TableCell>
-                            <TableCell align="right">{row.year}</TableCell>
-                            <TableCell align="right">{row.color}</TableCell>
-                            <TableCell align="right">{row.email_address}</TableCell>
-                        </TableRow>
+                    {cars.map(car => (
+                        <CarTableRow key={car.id} car={car} onClick={deleteRow}/>
                     ))}
                 </TableBody>
             </Table>
