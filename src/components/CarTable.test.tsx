@@ -8,5 +8,5 @@ describe('Car table', () => {
         const testTable = shallow(<CarTable data={data} deleteButtonsDisabled={false} onDataChange={null}/>);
         const rows = testTable.find('CarTableRow');
         expect(rows.length).toEqual(data.length);
-    })
+    });
 });
