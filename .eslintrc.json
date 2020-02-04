@@ -48,6 +48,10 @@
         "@typescript-eslint/no-explicit-any":"Error",
         "no-plusplus":[2,{ "allowForLoopAfterthoughts": true }],
         "@typescript-eslint/no-non-null-assertion":2,
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.tsx"]}]
+      "import/no-extraneous-dependencies": [
+        "error",
+        { "devDependencies": [ "**/*.test.tsx" ] }
+      ],
+      "import/extensions":  "off"
     }
 }
