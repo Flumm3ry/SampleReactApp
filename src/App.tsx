@@ -14,11 +14,11 @@ const App = () => (
         <Switch>
           <Route path="/deleted">
               <h1>Deleted items</h1>
-              <CarTable data={data} />
+              <CarTable data={data} deleteButtonsDisabled={true}/>
           </Route>
           <Route path="/">
             <h1>Car data</h1>
-            <CarTable data={data} />
+            <CarTable data={data} deleteButtonsDisabled={false}/>
           </Route>
         </Switch>
     </BrowserRouter>

@@ -12,6 +12,7 @@ import CarTableRow from './CarTableRow';
 
 interface TableProps {
     data: CarDetails[],
+    deleteButtonsDisabled: boolean,
 }
 
 const useStyles = makeStyles({
@@ -45,7 +46,7 @@ const CarTable = (props: TableProps): JSX.Element => {
                 </TableHead>
                 <TableBody>
                     {cars.map(car => (
-                        <CarTableRow key={car.id} car={car} onClick={deleteRow}/>
+                        <CarTableRow key={car.id} car={car} onClick={deleteRow} buttonDisabled={props.deleteButtonsDisabled}/>
                     ))}
                 </TableBody>
             </Table>
