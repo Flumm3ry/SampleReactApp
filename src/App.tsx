@@ -16,12 +16,13 @@ const App = () => (
           <div className="margin">
             <h1>Deleted Cars</h1>
             <AppContext.Consumer>
-              {(context: AppContextInterface) =>
+              {(context: AppContextInterface) => (
                 <CarTable
                   data={context.deletedCars}
-                  deleteButtonsDisabled={true}
+                  deleteButtonsDisabled
                   onDataChange={context.updateCars}
-                />}
+                />
+              )}
             </AppContext.Consumer>
           </div>
         </Route>
@@ -29,12 +30,13 @@ const App = () => (
           <div className="margin">
             <h1>Available Cars</h1>
             <AppContext.Consumer>
-              {(context: AppContextInterface) =>
+              {(context: AppContextInterface) => (
                 <CarTable
                   data={context.availableCars}
                   deleteButtonsDisabled={false}
                   onDataChange={context.updateCars}
-                />}
+                />
+              )}
             </AppContext.Consumer>
           </div>
         </Route>
