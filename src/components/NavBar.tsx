@@ -1,17 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme, withStyles, createStyles } from '@material-ui/core/styles';
+import { Theme } from '@material-ui/core';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => createStyles({
     grow: {
         flexGrow: 1,
     },
     title: {
-        padding: 10,
-        color: 'white',
+        margin: theme.spacing(3),
+        color: theme.palette.grey[100],
     }
-});
+}));
 
 const NavBar = (): JSX.Element => {
     const classes = useStyles();

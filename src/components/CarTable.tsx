@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/styles'
 import CarDetails from '../interfaces/CarDetails';
 import CarTableRow from './CarTableRow';
+import { Theme } from '@material-ui/core';
 
 interface TableProps {
     data: CarDetails[],
@@ -16,12 +17,12 @@ interface TableProps {
     onDataChange: (deletedCar: CarDetails) => void | null,
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => ({
     tableContainer: {
-        width: "75%",
+        marginRight: theme.spacing(10),
         maxHeight: 750,
     },
-});
+}));
 
 const CarTable = (props: TableProps): JSX.Element => {
     const classes = useStyles();
