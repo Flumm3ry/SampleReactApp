@@ -1,16 +1,44 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Theme from './themes/Theme';
 import NavBar from './components/NavBar';
-import CarTablesContainer from './components/CarTablesContainer';
+import { AppContext, AppContextProvider, AppContextInterface } from './contexts/AppContext';
+import CarTable from './components/CarTable';
 
 
 const App = () => (
   <ThemeProvider theme={Theme}>
     <BrowserRouter>
       <NavBar />
-      <CarTablesContainer />
+      <AppContextProvider>
+        <Route exact path="/deleted">
+          <div className="margin">
+            <h1>Deleted Cars</h1>
+            <AppContext.Consumer>
+              {(context: AppContextInterface) =>
+                <CarTable
+                  data={context.deletedCars}
+                  deleteButtonsDisabled={true}
+                  onDataChange={context.updateCars}
+                />}
+            </AppContext.Consumer>
+          </div>
+        </Route>
+        <Route exact path="/">
+          <div className="margin">
+            <h1>Available Cars</h1>
+            <AppContext.Consumer>
+              {(context: AppContextInterface) =>
+                <CarTable
+                  data={context.availableCars}
+                  deleteButtonsDisabled={false}
+                  onDataChange={context.updateCars}
+                />}
+            </AppContext.Consumer>
+          </div>
+        </Route>
+      </AppContextProvider>
     </BrowserRouter>
   </ThemeProvider>
 );
