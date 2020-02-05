@@ -20,12 +20,11 @@ const CarTableRow = (props: CarTableRowProps): JSX.Element =>(
         <TableCell align="right">{props.car.color}</TableCell>
         <TableCell align="right">{props.car.emailAddress}</TableCell>
         {props.buttonDisabled ? null : <TableCell align="right">
-            <Button 
+            <Button
                 color="primary"
                 startIcon={<DeleteIcon />}
                 variant="outlined"
                 onClick={() => props.onDataChange(props.car)}
-                
             >
                 Delete
             </Button>
