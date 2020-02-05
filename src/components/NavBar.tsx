@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
-import { makeStyles, useTheme, withStyles, createStyles } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { Theme } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -25,6 +25,9 @@ const NavBar = (): JSX.Element => {
                     </Link>
                     <Link to="/deleted" style={{textDecoration: "none", color: "inherit"}}>
                         <Typography variant="h6" className={classes.title}>Deleted Items</Typography>
+                    </Link>
+                    <Link to="/jokes" style={{textDecoration: "none", color: "inherit"}}>
+                        <Typography variant="h6" className={classes.title}>Jokes</Typography>
                     </Link>
                 </Toolbar>
             </AppBar>

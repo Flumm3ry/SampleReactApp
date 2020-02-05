@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -29,7 +29,7 @@ const CarTable = (props: TableProps): JSX.Element => {
 
     return (
         <>
-            {props.data.length == 0 ? <p>No data to display in this table</p> :
+            {props.data.length === 0 ? <p>No data to display in this table</p> :
                 <TableContainer className={classes.tableContainer} component={Paper}>
                     <Table aria-label="simple table" stickyHeader>
                         <TableHead>

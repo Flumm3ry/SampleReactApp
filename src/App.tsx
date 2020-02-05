@@ -5,6 +5,7 @@ import Theme from './themes/Theme';
 import NavBar from './components/NavBar';
 import { AppContext, AppContextProvider, AppContextInterface } from './contexts/AppContext';
 import CarTable from './components/CarTable';
+import JokeDisplay from './components/JokeDisplay';
 
 
 const App = () => (
@@ -38,6 +39,12 @@ const App = () => (
                 />
               )}
             </AppContext.Consumer>
+          </div>
+        </Route>
+        <Route exact path="/jokes">
+          <div className="margin">
+            <h1>Jokes</h1>
+            <JokeDisplay />
           </div>
         </Route>
       </AppContextProvider>
